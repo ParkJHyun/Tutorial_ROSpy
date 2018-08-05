@@ -1,5 +1,7 @@
 # Tutorial_ROSpy
 
+## 1Day
+
 This is ROS basic Tutorial with **python** 
 
 I referenced this book http://www.yes24.com/24/goods/37617833
@@ -40,3 +42,57 @@ Third, change permit publish_node.py and subscriber_node.py
   $ rosrun Tutorial publish_node.py (another terminal)
   $ rosrun Tutorial subscribe_node.py (another terminal)
 ```
+## 2Day
+
+Add complex message 'Complex.msg' containing
+
+``` c
+  float32 real
+  float32 imaginary
+```
+
+in msg directory
+
+Change **package.xml**
+
+``` c
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+```
+
+and **CMakeList.txt**
+``` c
+  find_package(catkin REQUIRED COMPONENTS
+    rospy
+    std_msgs
+    message_generation
+ )
+```
+
+``` c
+  catkin_package(
+    CATKIN_DEPENDS message_runtime
+    ...(something else)
+ )
+```
+
+``` c
+  add_message_files(
+    FILES
+    Complex.msg
+ )
+```
+
+
+``` c
+  generate_message(
+    DEPENDENCIES
+    std_msgs
+ )
+```
+
+Then you can generate it like 1Day
+
+**Publisher** is 'complex_pub.py'
+
+**Subscriber** is 'complex_sub.py'
