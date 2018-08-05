@@ -58,6 +58,8 @@ Change **package.xml**
 ``` c
   <build_depend>message_generation</build_depend>
   <exec_depend>message_runtime</exec_depend>
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
 ```
 
 and **CMakeList.txt**
@@ -92,6 +94,8 @@ and **CMakeList.txt**
 ```
 
 Then you can generate it like 1Day
+
+**Before you build catkin_package, make sure that make 'include' directory in 'Tutorial' directory**
 
 **Publisher** is 'complex_pub.py'
 
