@@ -1,0 +1,9 @@
+서비스 정의 파일/ 사용자 정의 메시지 사용시 catkin 빌드에서 설정해야 할 일
+1) CMakeLists.txt
+	- find_package()호출이 message_generation을 포함하여야 함
+	- add_service/message_files()을 사용하여 컴파일할 파일 등록
+	- generation_messages() 호출을 사용하여 파일에 대한 종속성 선언 확인 (ex. std_msgs)
+
+2) package.xml
+	-<build_depend>message_generation</build_depend>
+	 <exec_depend>message_runtime</exec_depend> 추가
