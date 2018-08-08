@@ -1,0 +1,11 @@
+#1. 목표
+duration time_to_wait
+---
+#2. 결과
+duration time_elapsed
+uint32 updates_sent
+---
+#3. 피드백
+duration time_elapsed
+duration time_remaining
+

@@ -1,0 +1,28 @@
+ROS action
+ : 긴 시간이 소요되는 목표 지향적인 행위의 인터페이스를 구현하는데 좋은 방법
+	- 토픽 사용/콜백 기반 방식
+	- 목표(목적지, 취소 가능)
+	- 결과(완료되면)
+	- 피드백(행위의 진행정보 갱신)
+- 액션 정의 파일(action dir 안에 존재/'Timer.action')
+1) 목표
+	ex) 'duration time_to_wait'
+---
+2) 결과
+	ex) 'duration time_elapsed'
+	    'uint32 updates_sent'
+---
+3) 피드백
+	ex) 'duration time_elapsed'
+	    'duration time_remaining'
+- action을 사용하는 가장 쉬운 방법은 actionlib 패키지에 존재하는 SimpleActionServer/Client 클래스를 사용하는 것임
+- catkin빌드를 통해 생성된 다른 메시지-정의 파일들 중 
+	~ActionGoal, ~ActionResult, ActionFeedback은 액션 서버와 클라이언트 코드에서 사용하는 것으로서 
+	추적할 수 있는 부기 정보임. 일반적으로 actionlib 패키지에 있는 라이브러리를 사용하면 위와 관련된 메시지를
+	사용할 필요가 없음
+- 비동기적
+- 요청거리가 순간적이지 않은(목표 위치까지 주행) 대부분의 요청/응답 상호 작용
+
+
+
+

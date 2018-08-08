@@ -11,6 +11,7 @@ find_package(catkin REQUIRED
 	rospy
 	std_msgs
 	message_generation
+	actionlib_msgs
 )
 
 ## System dependencies are found with CMake's conventions
@@ -60,16 +61,17 @@ find_package(catkin REQUIRED
  )
 
 ## Generate actions in the 'action' folder
-# add_action_files(
-#   FILES
-#   Action1.action
+ add_action_files(
+   DIRECTORY action
+   FILES Timer.action
 #   Action2.action
-# )
+ )
 
 ## Generate added messages and services with any dependencies listed here
  generate_messages(
-   DEPENDENCIES
-   std_msgs  # Or other packages containing msgs
+   DEPENDENCIES 
+   std_msgs 
+   actionlib_msgs
  )
 
 ################################################
@@ -104,7 +106,7 @@ find_package(catkin REQUIRED
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES Tutorial
-  CATKIN_DEPENDS rospy std_msgs
+  CATKIN_DEPENDS rospy std_msgs actionlib_msgs
   DEPENDS system_lib
 )
 
