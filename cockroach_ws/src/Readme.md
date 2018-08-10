@@ -1,5 +1,12 @@
 # Cockroach in Gazebo
 
+## Snapshot 
+
+----------
+
+<img width="600" src="https://user-images.githubusercontent.com/35755034/43958009-d14ae1f0-9ce4-11e8-8d1f-61a3bb783199.jpg">
+
+----------
 
 # Before you start
 
