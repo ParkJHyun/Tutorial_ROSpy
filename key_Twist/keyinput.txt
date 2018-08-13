@@ -1,0 +1,45 @@
+1. key_publish.py
+	: 키 입력을 기다려 keys 토픽의 std_msgs/String 메시지로 발행하는 키보드 구동기
+	- termios.tcgetattr(sys.stdin)
+		: 표준 입력 스트림으로 구조체 멤버를 설정함
+	- tty.setcbreak(sys.stdin.fileno())
+		: 파일 디스크립터 fd 의 모드를 cbreak로 변환함
+	-> 키보드를 누르자 마자 곧바로 프로그램의 표준 입력 스트림으로 키를 받게 하기위해 설정
+	- select.select([sys.stdin], [], [], 0)[0] == [sys.stdin]
+		: stdin 스트림을 계속 폴링(polling)함. timeout을 0으로 설정하여 select()를 호출해야 바로 반환 가능
+	- termios.tcsetattr(sys.stdin, termios.TCSADRAIN, old_attr)
+		: 콘솔 모드를 표준 모드로 변환
+
+2. keys_to_Twist.py
+	: 로봇의 운동에 대한 일반적인 키를 입력받으면 운동을 생성하는 운동 생성기
+	- key_mapping = {'w': [0,1], 'x': [0, -1], 'a': [-1, 0], 'd': [1, 0], 's': [0, 0]}
+		: 파이썬 딕셔너리를 통해 키 입력과 목표 운동을 대응함
+	- if len(msg.data) == 0 or not key_mapping.has_key(msg.data[0]):
+	  	return 
+	  vels = key_mapping[msg.data[0]]
+		: 로봇 구동기를 위한 Twist 메시지를 지속적으로 생성하도록 연속적인 키 입력 스트림을 가질 때만 동작
+
+* $ rostopic echo 'message'
+	: publish 되는 message의 내용을 확인할 수 있음
+  $ rostopic hz 'message'
+	: 초당 토픽의 평균 메시지 생성률을 계산하고 추정 값을 출력함
+ - rostopic 도구는 디버깅 세션에서는 시스템을 빠르게 검사하고 데이터가 예상한 대로 흘러가는지를 검증 가능
+
+3. key_to_Twist_rosrate.py
+	:새로운 키가 입력되지 않으면 마지막 운동 명령을 반복 
+	 반복문 실행에 소비되는 시간을 지속적으로 추정하는 ROS rate 구조를 통해 일정한 결과를 얻음
+	- rate = rospy.Rate(10)
+	  g_last_twist = Twist()
+	  while not rospy.is_shutdown():
+	  	twist_pub.publish(g_last_twist)
+		rate.sleep()
+	: rospy.Rate(10)을 사용하여 매우 일정하게 10Hz 메시지 스트림을 보냄
+
+* 시각화 Tool rqt_plot
+	$ rostopic echo 'message'
+	$ rostopic info 'message'
+	$ rosmsg show 
+	를 통하여 정확한 메시지 항목을 찾고 그려지는 것을 확인함
+	$ rqt_plot cmd_vel/linear/x cmd_vel/angluar/z
+
+
