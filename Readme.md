@@ -6,6 +6,8 @@ This is ROS basic Tutorial with **python**
 
 I referenced this book http://www.yes24.com/24/goods/37617833
 
+Here, most code is in https://github.com/Jpub/ROS because I referenced it
+
 Before You start, Please ready for below operation
 
 - Have labtop with Ubuntu 16.04(LTS) and installed ROS Kinetic 
