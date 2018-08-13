@@ -74,3 +74,44 @@ and then
 $ rqt_plot message # rqt_plot cmd_vel/linear/x cmd_vel/angular/z
 ```
 <img width="600" src="https://user-images.githubusercontent.com/35755034/44014325-4fabc906-9f06-11e8-97f2-f98cfa148b16.png">
+
+## ROS parameter server
+
+Using ROS parameter, it can improve program.
+
+there are many methods setting up (debuging command, roslaunch, graphic interface, other node, platform etc).
+
+ROS master(roscore) contains parameter server(generally key/value repository).
+
+using ***prive*** parameter for preventing name collision.
+
+on bash script,
+``` c
+_(parameter name):=(value)
+```
+
+## key_Twist_param.py
+
+``` py
+	if rospy.has_param('~linear_scale'): # find parameter _liner_scale
+		g_vel_scales[1] = rospy.get_param('~linear_scale') # get parameter _liner_scale value
+	else :
+		rospy.logwarn("linear scale not provided. Defaulting is %.1f" % g_vel_scales[1]) 
+    # logwarn(), loginfo(), logerror() print color text on console useful error message
+```
+
+## key_Twist_ramp.py
+
+keep prevent robot from slip, vibrating current constraint, breaking etc, should input move commands steadily for times
+
+***ramped_vel function*** means
+
+<img width="600" src="https://user-images.githubusercontent.com/35755034/44023831-80f3ec1c-9f26-11e8-8717-b9af5782699b.png">
+
+***function frameworks***
+
+<img width="600" src="https://user-images.githubusercontent.com/35755034/44023933-cf2f5bf0-9f26-11e8-9913-357973b286b8.png">
+
+***rqt_plot***
+
+<img width="600" src="https://user-images.githubusercontent.com/35755034/44023964-e9fc71b6-9f26-11e8-863a-42d2e3b3e27b.png">
