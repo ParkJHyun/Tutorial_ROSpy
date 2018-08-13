@@ -73,4 +73,4 @@ and then
 ``` c
 $ rqt_plot message # rqt_plot cmd_vel/linear/x cmd_vel/angular/z
 ```
-<img width="1000" src="https://user-images.githubusercontent.com/35755034/44014325-4fabc906-9f06-11e8-97f2-f98cfa148b16.png">
+<img width="600" src="https://user-images.githubusercontent.com/35755034/44014325-4fabc906-9f06-11e8-97f2-f98cfa148b16.png">
