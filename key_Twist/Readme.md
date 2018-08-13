@@ -93,11 +93,11 @@ _(parameter name):=(value)
 ## key_Twist_param.py
 
 ``` py
-	if rospy.has_param('~linear_scale'): # find parameter _liner_scale
-		g_vel_scales[1] = rospy.get_param('~linear_scale') # get parameter _liner_scale value
-	else :
-		rospy.logwarn("linear scale not provided. Defaulting is %.1f" % g_vel_scales[1]) 
-    # logwarn(), loginfo(), logerror() print color text on console useful error message
+if rospy.has_param('~linear_scale'):                       # find parameter _liner_scale
+	g_vel_scales[1] = rospy.get_param('~linear_scale') # get parameter _liner_scale value
+else :
+	rospy.logwarn("linear scale not provided. Defaulting is %.1f" % g_vel_scales[1]) 
+# logwarn(), loginfo(), logerror() print color text on console useful error message
 ```
 
 ## key_Twist_ramp.py
