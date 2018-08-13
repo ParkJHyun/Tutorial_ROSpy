@@ -115,3 +115,16 @@ keep prevent robot from slip, vibrating current constraint, breaking etc, should
 ***rqt_plot***
 
 <img width="600" src="https://user-images.githubusercontent.com/35755034/44023964-e9fc71b6-9f26-11e8-863a-42d2e3b3e27b.png">
+
+## Gazebo
+
+I use a simulation in http://emanual.robotis.com/docs/en/platform/turtlebot3/autonomous_driving/#turtlebot3-autorace-2017-teaser
+
+``` c
+$ roslaunch turtlebot3_gazebo turtlebot3_autorace_mission.launch
+$ roslaunch turtlebot3_gazebo turtlebot3_autorace.launch
+$ ./key_publisher.py
+$ ./key_Twist_ramp.py _linear_scale:=0.5 _angular_scale:=1.0 _linear_accel:=1.0 _angular_accel:=1.0
+```
+<img width="800" src="https://user-images.githubusercontent.com/35755034/44026998-df6b11a4-9f2f-11e8-909b-de3c9147403d.jpg">
+
