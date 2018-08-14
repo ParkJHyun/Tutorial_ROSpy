@@ -128,3 +128,34 @@ $ ./key_Twist_ramp.py _linear_scale:=0.5 _angular_scale:=1.0 _linear_accel:=1.0 
 ```
 <img width="800" src="https://user-images.githubusercontent.com/35755034/44026998-df6b11a4-9f2f-11e8-909b-de3c9147403d.jpg">
 
+## Rviz
+
+<img width="800" src="https://user-images.githubusercontent.com/35755034/44028691-a5f8fb9c-9f35-11e8-9667-48177ab441df.png">
+
+represent ROS visualization, general-purpose 3D visualization enviroment for robot, sensor, algorithm.
+
+visualize many set of data type streaming through general ROS system emphasizing 3D feature of data.
+
+all of data is adhere to reference frame in ROS
+
+Before this Tutorial,
+
+``` c
+$ roscore 
+$ roslaunch turtlebot_gazebo turtlebot_world.launch
+$ ./key_publisher.py
+$ ./key_to_Twist_rosrate.py _linear_scale:=0.5 _angular_scale:=1.0 _linear_accel:=1.0 _angular_accel:=1.0
+$ rosrun rviz rviz
+```
+
+***1) Choose reference frame for visualizing***
+
+In Rviz, 'Fixed Frame' -> ***'camera_depth_frame'***
+
+***2) Visualize robot model and image***
+
+'Add' -> ***'RobotModel'***
+
+'Add' -> ***'PointCloud2'*** -> 'Topic' -> ***'/camera/depth/points'***
+
+'Add' -> ***'Image'***
