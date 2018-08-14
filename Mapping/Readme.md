@@ -24,14 +24,14 @@ It helps to seperate bugs and fix it, providing equivalent data repeat to algori
 It can develop algorithm not using always robot.
 
 
-``` py
-$ rosbag record (topic name)                          # rosbag record /scan /tf
-$ rosbag record -O(--output-name) goo.bag /scan /tf   # save goo.bag 
-$ rosbag record -o(--output-prefix) goo /scan /tf     # goo_2018-08-14-11-15-10.bag
-$ rosbag record -a                                    # record all of published topic 
-$ rosbag play --clock goo.bag                         # play a set of recorded message files 
-			                              # can set playtime or start point etc (wiki) 
-# --clock is making rosbag pusblish clock time it is important to make a map                    
+``` c
+$ rosbag record (topic name)                          // rosbag record /scan /tf
+$ rosbag record -O(--output-name) goo.bag /scan /tf   // save goo.bag 
+$ rosbag record -o(--output-prefix) goo /scan /tf     // goo_2018-08-14-11-15-10.bag
+$ rosbag record -a                                    // record all of published topic 
+$ rosbag play --clock goo.bag                         // play a set of recorded message files 
+			                              // can set playtime or start point etc (wiki) 
+// --clock is making rosbag pusblish clock time it is important to make a map                    
 ```
 
 ### Use it
