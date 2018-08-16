@@ -86,6 +86,10 @@ Using '2D Pose Estimate' which estimates where robot is and '2D Nav Goal' which 
 
 ## patrol.py
 
+Turtlebot moves around map.
+
+I make some points that robot should goes to and then turtlebot moves around map infinite.
+
 ``` c
 $ rosrun Map patrol.py
 ```
