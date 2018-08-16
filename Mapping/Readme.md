@@ -65,3 +65,33 @@ $ rosrun map_server map_saver
 ### my result
 
 <img width="400" src="https://user-images.githubusercontent.com/35755034/44072237-8bc28250-9fc8-11e8-90b9-2b84dff380f3.png">
+
+## 3. Navigation
+
+How to use ROS amcl(Adaptive Monte Carlo Localization) package for recognizing robot position in map.
+
+<img width="600" src="https://user-images.githubusercontent.com/35755034/44191453-82eb6080-a166-11e8-8fb5-f1806e23f72e.png">
+
+``` c
+$ roslaunch turtlebot_stage turtlebot_in_stage.launch
+```
+
+Using '2D Pose Estimate' which estimates where robot is and '2D Nav Goal' which means position goal.
+
+<img width="400" src="https://user-images.githubusercontent.com/35755034/44191506-b0d0a500-a166-11e8-9cef-c27b09e0e475.png"> Bad Estimates
+
+<img width="400" src="https://user-images.githubusercontent.com/35755034/44191601-250b4880-a167-11e8-9ccb-025996a8de98.png"> Good Estimates
+
+<img width="400" src="https://user-images.githubusercontent.com/35755034/44191640-53892380-a167-11e8-8069-d77e1120695d.png"> 2D Nav goal
+
+## patrol.py
+
+``` c
+$ rosrun Map patrol.py
+```
+
+<img width="400" src="https://user-images.githubusercontent.com/35755034/44191901-3b65d400-a168-11e8-9276-9afc57eba58a.png">
+
+Check RobotModel & LaserScan(Kinect) & PointCloud & Map & Local Planning & Global Planning 
+
+(both planning check costmap, planner) & Pose & ParticleCloud & Path.
