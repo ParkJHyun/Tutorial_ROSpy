@@ -19,18 +19,20 @@ class Follower:
 		mask = cv2.inRange(hsv, lower_yellow, upper_yellow)
 		
 		h, w, d = image.shape
-		search_top = 3*h/4
-		search_bot = search_top+40
+		search_top = 5*h/6
+		search_bot = search_top+20
 		mask[0:search_top, 0:w] = 0
 		mask[search_bot:h, 0:w] = 0
-		M = cv2.moments(mask)
+		rising_sobel = cv2.Sobel(mask,cv2.CV_8U,1,0,ksize=3)
+		M = cv2.moments(rising_sobel)
 		if M['m00']>0:
-			cx = int(M['m10']/M['m00']) + 80
+			cx = int(M['m10']/M['m00']) + 120
 			cy = int(M['m01']/M['m00'])
 			err = cx - w/2
 			self.twist.linear.x = 0.2
-			self.twist.angular.z = -float(err) / 120
+			self.twist.angular.z = -float(err) / 100
 			self.cmd_vel_pub.publish(self.twist)
+		cv2.imshow("window1", mask)		
 		cv2.imshow("window", image)
 		cv2.waitKey(3)
 
