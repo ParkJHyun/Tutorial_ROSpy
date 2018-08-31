@@ -1,5 +1,5 @@
 <launch>
-	<arg name="model" default="$(find urdf_base)/urdf/korus_base.urdf" />
+	<arg name="model" default="$(find urdf_base)/urdf/cylinder.urdf" />
 	<arg name="gui" default="True" />
 	<param name="robot_description" textfile="$(arg model)" />
 	<param name="use_gui" value="$(arg gui)" />
