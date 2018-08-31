@@ -1,0 +1,86 @@
+digraph G {
+node [shape=box];
+"local_manip_start" [label="local_manip_start"];
+"base_position_x_link" [label="base_position_x_link"];
+"base_position_y_link" [label="base_position_y_link"];
+"base_link" [label="base_link"];
+"caster_back_left_link" [label="caster_back_left_link"];
+"caster_back_right_link" [label="caster_back_right_link"];
+"caster_front_left_link" [label="caster_front_left_link"];
+"caster_front_right_link" [label="caster_front_right_link"];
+"torso_link" [label="torso_link"];
+"turret_offset_link" [label="turret_offset_link"];
+"neck_link" [label="neck_link"];
+"head_link" [label="head_link"];
+"asus_pan_link" [label="asus_pan_link"];
+"asus_tilt_link" [label="asus_tilt_link"];
+"stargazer_link" [label="stargazer_link"];
+"tablet_link" [label="tablet_link"];
+"torso_lift_offset_link" [label="torso_lift_offset_link"];
+"torso_lift_link" [label="torso_lift_link"];
+"shoulder_link" [label="shoulder_link"];
+"upper_arm_link" [label="upper_arm_link"];
+"lower_arm_link" [label="lower_arm_link"];
+"wrist_link" [label="wrist_link"];
+"gripper_link" [label="gripper_link"];
+"gripper_center_link" [label="gripper_center_link"];
+"gripper_left_finger_tip_link" [label="gripper_left_finger_tip_link"];
+"gripper_right_finger_tip_link" [label="gripper_right_finger_tip_link"];
+"wheel_left_link" [label="wheel_left_link"];
+"wheel_right_link" [label="wheel_right_link"];
+node [shape=ellipse, color=blue, fontcolor=blue];
+"local_manip_start" -> "base_position_x_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_position_x_joint" -> "base_position_x_link"
+"base_position_x_link" -> "base_position_y_joint" [label="xyz: 0 0 0 \nrpy: 0 -0 0"]
+"base_position_y_joint" -> "base_position_y_link"
+"base_position_y_link" -> "base_heading_joint" [label="xyz: 0 0 0.075 \nrpy: 0 -0 0"]
+"base_heading_joint" -> "base_link"
+"base_link" -> "caster_back_left_joint" [label="xyz: -0.18 0.1 -0.035 \nrpy: 0 -0 1.5708"]
+"caster_back_left_joint" -> "caster_back_left_link"
+"base_link" -> "caster_back_right_joint" [label="xyz: -0.18 -0.1 -0.035 \nrpy: 0 -0 1.5708"]
+"caster_back_right_joint" -> "caster_back_right_link"
+"base_link" -> "caster_front_left_joint" [label="xyz: 0.18 0.1 -0.035 \nrpy: 0 -0 1.5708"]
+"caster_front_left_joint" -> "caster_front_left_link"
+"base_link" -> "caster_front_right_joint" [label="xyz: 0.18 -0.1 -0.035 \nrpy: 0 -0 1.5708"]
+"caster_front_right_joint" -> "caster_front_right_link"
+"base_link" -> "torso_joint" [label="xyz: 0 0 0.25 \nrpy: 0 -0 0"]
+"torso_joint" -> "torso_link"
+"torso_link" -> "turret_offset_joint" [label="xyz: -0.155 0 0.025 \nrpy: 0 -0 0"]
+"turret_offset_joint" -> "turret_offset_link"
+"turret_offset_link" -> "neck_joint" [label="xyz: 0 0 0.5 \nrpy: 0 -0 0"]
+"neck_joint" -> "neck_link"
+"neck_link" -> "head_joint" [label="xyz: 0 0 0.3 \nrpy: 0 -0 0"]
+"head_joint" -> "head_link"
+"head_link" -> "asus_pan_joint" [label="xyz: 0.1 0 0.04 \nrpy: 0 -0 0"]
+"asus_pan_joint" -> "asus_pan_link"
+"asus_pan_link" -> "asus_tilt_joint" [label="xyz: 0.02 0 0.02 \nrpy: -1.5708 0 0"]
+"asus_tilt_joint" -> "asus_tilt_link"
+"head_link" -> "stargazer_joint" [label="xyz: -0.05 0 0.04 \nrpy: 0 -0 0"]
+"stargazer_joint" -> "stargazer_link"
+"neck_link" -> "tablet_joint" [label="xyz: 0.02 0 0.15 \nrpy: 0 -0 0"]
+"tablet_joint" -> "tablet_link"
+"turret_offset_link" -> "torso_lift_offset" [label="xyz: 0 0 0.22 \nrpy: 0 -0 0"]
+"torso_lift_offset" -> "torso_lift_offset_link"
+"torso_lift_offset_link" -> "torso_lift" [label="xyz: 0 0 0 \nrpy: 0 -0 -3.14159"]
+"torso_lift" -> "torso_lift_link"
+"torso_lift_link" -> "arm_mount_joint" [label="xyz: -0.075 -0.06 0 \nrpy: 0 -0 0"]
+"arm_mount_joint" -> "shoulder_link"
+"shoulder_link" -> "shoulder_joint" [label="xyz: -0.08 0.06 -0.08 \nrpy: 0 -1.5708 -1.5708"]
+"shoulder_joint" -> "upper_arm_link"
+"upper_arm_link" -> "elbow_joint" [label="xyz: 0.31 0 0.06 \nrpy: 0 -0 3.14159"]
+"elbow_joint" -> "lower_arm_link"
+"lower_arm_link" -> "wrist_joint" [label="xyz: 0.4 0 0 \nrpy: 0 -0 1.5708"]
+"wrist_joint" -> "wrist_link"
+"wrist_link" -> "gripper_joint" [label="xyz: 0.05 0 -0.06 \nrpy: 0 -0 0"]
+"gripper_joint" -> "gripper_link"
+"gripper_link" -> "gripper_center_joint" [label="xyz: 0.1 0 0 \nrpy: 0 -0 0"]
+"gripper_center_joint" -> "gripper_center_link"
+"gripper_link" -> "gripper_left_finger_joint" [label="xyz: 0.02 0 -0.05 \nrpy: 0 -0 0"]
+"gripper_left_finger_joint" -> "gripper_left_finger_tip_link"
+"gripper_link" -> "gripper_right_finger_joint" [label="xyz: 0.02 0 0.05 \nrpy: -3.14159 -0 0"]
+"gripper_right_finger_joint" -> "gripper_right_finger_tip_link"
+"base_link" -> "wheel_left_joint" [label="xyz: 0 0.15 0 \nrpy: 0 -0 1.5708"]
+"wheel_left_joint" -> "wheel_left_link"
+"base_link" -> "wheel_right_joint" [label="xyz: 0 -0.15 0 \nrpy: 0 -0 1.5708"]
+"wheel_right_joint" -> "wheel_right_link"
+}

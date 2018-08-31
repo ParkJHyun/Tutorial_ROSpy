@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<robot name="first">
+
+  <material name="black">
+    <color rgba="0 0 0 1"/>
+  </material>
+  <material name="yellow">
+    <color rgba="1 0.7 0 0.8"/>
+  </material>
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.3" radius="0.7"/>
+        </geometry>
+        <material name="yellow"/>
+    </visual>
+  </link>
+
+  <link name="right_wheel">
+
+  </link>
+</robot>
