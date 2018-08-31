@@ -111,3 +111,6 @@ Rviz 실행
 
 여기에서 FixedFrame은 'base_link'이므로 base_link로 선택함
 
+<img width="600" src="https://user-images.githubusercontent.com/35755034/44902427-ee2b5a00-ad44-11e8-985d-e9b077d79dac.png">
+<img width="600" src="https://user-images.githubusercontent.com/35755034/44902555-4d896a00-ad45-11e8-92b7-6e5c756f57ea.png">
+위 그림은 Wheel joint를 포함한 mobile robot을 구성함 
